@@ -88,6 +88,26 @@ export const ButtonCancel = styled.button`
   }
 `;
 
+export const ButtonAssinar = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: ${({ theme }) =>
+    `${theme.fonts.weights.regular} ${theme.fonts.sizes.desktop.s} 'Roboto'`};
+  height: 32px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  color: ${({ theme }) => theme.colors.buttonText};
+  padding: 0 ${({ theme }) => theme.spacing.md};
+  align-self: flex-end;
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(85%);
+  }
+`;
+
 export const Type = styled.div``;
 
 export const Maturity = styled.div``;

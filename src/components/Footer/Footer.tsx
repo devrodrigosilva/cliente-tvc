@@ -92,8 +92,11 @@ const Footer: React.FC = () => {
 
       <Row>
         <Body size="s">
-          &copy; 2025 - Tecno Veste Cast. Todos os direitos reservados.
+          Tecnoveste Cast 2025 © Todos os direitos reservados.
         </Body>
+      </Row>
+      <Row>
+        <Body size="s">contato@podcast.tecnoveste.com.br</Body>
       </Row>
     </Container>
   );

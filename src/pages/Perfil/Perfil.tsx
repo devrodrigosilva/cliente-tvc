@@ -13,6 +13,7 @@ import {
   Input,
   Col,
   Row,
+  ButtonAssinar,
 } from './Perfil.styles';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
