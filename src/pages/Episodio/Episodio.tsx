@@ -59,27 +59,29 @@ const Episodio: React.FC = () => {
     }[]
   >();
 
-  useEffect(() => {
-    getUserType().then((userType) => {
-      if (userType !== 'USER_ASSINANTE') navigate('/planos');
-    });
-  }, []);
 
   useEffect(() => {
     if (id) {
       fetchEpisodio({ id }).then(({ episode }) => {
-        setTitulo(episode.name);
-        setData(
-          new Date(episode.releaseDate).toLocaleDateString('pt-BR', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          }),
-        );
-        setApresentadores(`Apresentadores: ${episode.presenters}`);
-        setConvidados(`Convidados: ${episode.guests}`);
-        setDescricao(episode.description);
-        setRssFeed(`RSS Feed: www.tecnovesttv.com/${podcastSlug}`);
+        const { type } = episode
+        if(type !== 'publico'){
+          getUserType().then((userType) => {
+            if (userType !== 'USER_ASSINANTE') navigate('/planos');
+          });
+        }else{
+          setTitulo(episode.name);
+          setData(
+            new Date(episode.releaseDate).toLocaleDateString('pt-BR', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            }),
+          );
+          setApresentadores(`Apresentadores: ${episode.presenters}`);
+          setConvidados(`Convidados: ${episode.guests}`);
+          setDescricao(episode.description);
+          setRssFeed(`RSS Feed: www.tecnovesttv.com/${podcastSlug}`);
+        }
       });
     }
   }, [fetchEpisodio, id]);
